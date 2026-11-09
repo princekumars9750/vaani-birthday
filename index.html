@@ -1,8 +1,304 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Happy Birthday, Vaani!</title><link rel="stylesheet" href="style.css"></head><body><main>
-<section class="screen active" id="welcome"><div class="flowers">🌷　🌸　🌷</div><div class="envelope">♡</div><p class="eyebrow">A little something made just for you</p><h1>For you, Vaani</h1><p>A small surprise, with lots of warm wishes.</p><button data-next="room">Open your surprise ♡</button></section>
-<section class="screen night" id="room"><div class="moon">☾</div><div class="teddy">🧸</div><p class="eyebrow">A little birthday magic...</p><h2>Shall we light up your day?</h2><p>This little room is waiting for you.</p><button id="lights">Turn on the lights ✨</button></section>
-<section class="screen" id="cake"><p class="eyebrow">Make a birthday wish</p><h2>A cake made for your day 🎂</h2><p>Tap the cake to make a wish!</p><button class="cake" id="cakeBtn">🕯️ 🕯️ 🕯️</button><p id="cakeMsg">Make a wish and tap the cake ♡</p><button id="cakeNext" class="hidden" data-next="wish">Continue</button></section>
-<section class="screen" id="wish"><div class="teddy">🧸</div><div class="flowers">🎈　🎈　🎈</div><h2>Close your eyes and make a wish</h2><p>I hope this year brings you everything good.</p><button data-next="gallery">Reveal your memories ♡</button></section>
-<section class="screen" id="gallery"><p class="eyebrow">Little moments</p><h2>A tiny memory corner</h2><p>Add your favorite photos later in the assets folder.</p><div class="photos"><div>🌷<small>A lovely moment</small></div><div>✨<small>A bright smile</small></div><div>🌸<small>A happy memory</small></div></div><button data-next="letter">Read a little letter</button></section>
-<section class="screen" id="letter"><p class="eyebrow">A few words from me</p><h2>Dear Vaani,</h2><article><p>Happy Birthday! ❤️🎂</p><p>I hope you have a really beautiful day filled with happiness, laughter, and lots of smiles.</p><p>I wanted to make something special for you instead of just sending a normal birthday wish.</p><p>I like you more than you might realize, and you have become someone very special to me. Even small moments and simple conversations with you can make my day better.</p><p>A part of me is still hoping that someday you might come into my life. I don't know what the future holds, but my feelings are genuine. I'll always wish for your happiness, whatever happens.</p><p>I hope this new year brings you happiness, success, good health, and everything you've been wishing for. Keep being yourself and enjoy every little moment.</p><p>Take care of yourself and have the happiest birthday!</p><p><b>Once again, Happy Birthday, Vaani! ❤️</b></p><p>With lots of love and good wishes.</p></article><button data-next="final">One last surprise ♡</button></section>
-<section class="screen final" id="final"><div class="teddy">🎉 💗 🌸</div><h1>Happy Birthday,<br>Vaani!</h1><p>Wishing you a year full of smiles, new adventures, and beautiful moments.</p><p><i>Made with care, just for you ♡</i></p><button class="secondary" id="replay">Replay the surprise ↻</button></section></main><footer>Made with ♡</footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffaf5">
+  <title>A Birthday Surprise for Vaani</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <!-- Screen 1: a warm welcome and an illustrated envelope. -->
+    <section class="experience-screen welcome-screen is-active" id="welcome" aria-labelledby="welcome-title" aria-hidden="false">
+      <span class="float float-heart float-heart-one" aria-hidden="true">♥</span>
+      <span class="float float-heart float-heart-two" aria-hidden="true">♡</span>
+      <span class="float float-sparkle sparkle-one" aria-hidden="true">✦</span>
+      <span class="float float-sparkle sparkle-two" aria-hidden="true">✧</span>
+      <span class="float float-sparkle sparkle-three" aria-hidden="true">✦</span>
+
+      <div class="welcome-content">
+        <p class="eyebrow"><span aria-hidden="true">✦</span> A little something <span aria-hidden="true">✦</span></p>
+        <h1 id="welcome-title">There's something<br>for <em>you.</em></h1>
+        <p class="subtitle">A tiny birthday surprise, made just for you.</p>
+        <div class="birthday-countdown" aria-label="Countdown to November 10">
+          <p class="countdown-label" id="countdown-label">The birthday magic begins in</p>
+          <div class="countdown-units" role="timer" aria-live="off">
+            <div class="countdown-unit"><span id="countdown-days">--</span><small>days</small></div>
+            <span class="countdown-separator" aria-hidden="true">:</span>
+            <div class="countdown-unit"><span id="countdown-hours">--</span><small>hours</small></div>
+            <span class="countdown-separator" aria-hidden="true">:</span>
+            <div class="countdown-unit"><span id="countdown-minutes">--</span><small>min</small></div>
+            <span class="countdown-separator" aria-hidden="true">:</span>
+            <div class="countdown-unit"><span id="countdown-seconds">--</span><small>sec</small></div>
+          </div>
+        </div>
+
+        <button class="envelope-button" id="envelope-button" type="button" aria-label="Open your birthday letter" aria-expanded="false" aria-controls="birthday-letter">
+          <span class="envelope" aria-hidden="true">
+            <span class="envelope-paper"></span>
+            <span class="envelope-back"></span>
+            <span class="envelope-front"></span>
+            <span class="envelope-flap"></span>
+            <span class="envelope-heart">♥</span>
+            <span class="flower flower-left">✿</span>
+            <span class="flower flower-right">✿</span>
+            <span class="flower flower-top">✿</span>
+          </span>
+          <span class="envelope-caption">Tap to open your letter</span>
+        </button>
+
+        <button class="open-button" id="open-button" type="button">
+          <span>Open Your Surprise</span>
+          <span class="button-arrow" aria-hidden="true">♥</span>
+        </button>
+      </div>
+      <p class="date-note">November 10 <span aria-hidden="true">·</span> just for Vaani</p>
+    </section>
+
+    <dialog class="letter-dialog" id="birthday-letter" aria-labelledby="letter-title">
+      <button class="letter-close" id="close-letter" type="button" aria-label="Close the birthday letter">×</button>
+      <p class="letter-eyebrow">A little note, just for you</p>
+      <h2 id="letter-title">Dear Vaani,</h2>
+      <div class="letter-copy">
+        <p>Happy Birthday! ❤️🎂</p>
+        <p>I hope you have a really beautiful day filled with happiness, laughter, and lots of smiles.</p>
+        <p>I honestly don't know how to write a perfect birthday message, but I wanted to make something special for you instead of just sending a normal birthday wish.</p>
+        <p>I just want to tell you something honestly. I like you more than you might realize, and you have become someone very special to me. Even small moments and simple conversations with you can make my day better.</p>
+        <p>A part of me is still waiting and hoping that someday you might come into my life. I don't know what the future holds, but my feelings are genuine. I'll always wish for your happiness, no matter what happens.</p>
+        <p>I hope this new year of your life brings you lots of happiness, success, good health, and everything you've been wishing for.</p>
+        <p>Never stop smiling, keep being yourself, and enjoy every little moment of life.</p>
+        <p>Take care of yourself and have the happiest birthday!</p>
+        <p>Once again, Happy Birthday, Vaani! ❤️</p>
+      </div>
+      <p class="letter-signoff">With lots of love and good wishes.</p>
+      <span class="letter-flower" aria-hidden="true">✿</span>
+    </dialog>
+
+    <!-- Screen 2: a quiet, starry room before the lights come on. -->
+    <section class="experience-screen dark-room-screen" id="dark-room" aria-labelledby="lights-title" aria-hidden="true">
+      <span class="star star-one" aria-hidden="true">✦</span>
+      <span class="star star-two" aria-hidden="true">✧</span>
+      <span class="star star-three" aria-hidden="true">·</span>
+      <span class="star star-four" aria-hidden="true">✦</span>
+      <span class="star star-five" aria-hidden="true">·</span>
+      <span class="star star-six" aria-hidden="true">✧</span>
+      <span class="star star-seven" aria-hidden="true">·</span>
+      <span class="star star-eight" aria-hidden="true">✦</span>
+      <span class="star star-nine" aria-hidden="true">·</span>
+
+      <div class="room-content">
+        <p class="room-eyebrow">A little moment before the magic</p>
+        <h2 id="lights-title">Shhh... the room<br>is waiting for you.</h2>
+        <p class="room-subtitle">Someone left the lights off on purpose.</p>
+
+        <svg class="teddy" viewBox="0 0 220 240" role="img" aria-label="A little teddy bear waiting in the starry room">
+          <ellipse cx="110" cy="220" rx="60" ry="11" fill="#080d22" opacity=".42"/>
+          <g class="teddy-body">
+            <ellipse cx="110" cy="164" rx="47" ry="55" fill="#b87955"/>
+            <ellipse cx="110" cy="173" rx="27" ry="35" fill="#e2b995"/>
+            <circle cx="64" cy="132" r="22" fill="#a96c4c"/>
+            <circle cx="156" cy="132" r="22" fill="#a96c4c"/>
+            <circle cx="64" cy="132" r="11" fill="#dfb390"/>
+            <circle cx="156" cy="132" r="11" fill="#dfb390"/>
+            <ellipse cx="74" cy="203" rx="25" ry="17" fill="#b87955"/>
+            <ellipse cx="146" cy="203" rx="25" ry="17" fill="#b87955"/>
+            <circle cx="110" cy="105" r="52" fill="#bd835e"/>
+            <circle cx="72" cy="67" r="19" fill="#ad724f"/>
+            <circle cx="148" cy="67" r="19" fill="#ad724f"/>
+            <circle cx="72" cy="67" r="9" fill="#e6bca0"/>
+            <circle cx="148" cy="67" r="9" fill="#e6bca0"/>
+            <ellipse cx="110" cy="120" rx="24" ry="18" fill="#f1d8bd"/>
+            <ellipse cx="110" cy="111" rx="7" ry="5" fill="#50373a"/>
+            <circle cx="91" cy="98" r="3.5" fill="#3c2a2d"/>
+            <circle cx="129" cy="98" r="3.5" fill="#3c2a2d"/>
+            <circle cx="85" cy="111" r="5" fill="#d88c88" opacity=".65"/>
+            <circle cx="135" cy="111" r="5" fill="#d88c88" opacity=".65"/>
+            <path d="M104 124 Q110 130 116 124" fill="none" stroke="#785047" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M91 153 Q110 166 129 153" fill="none" stroke="#d3a07e" stroke-width="3" stroke-linecap="round"/>
+            <path d="M91 153 Q110 163 129 153 L124 164 Q110 171 96 164Z" fill="#df7890"/>
+            <circle cx="110" cy="166" r="5" fill="#f3c1cd"/>
+          </g>
+        </svg>
+
+        <button class="light-button" id="turn-on-lights" type="button">
+          <span class="bulb" aria-hidden="true">✦</span>
+          <span id="light-button-label">Turn on the lights</span>
+        </button>
+        <p class="lights-note" id="lights-note" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Screen 3: the lights reveal a bright birthday cake. -->
+    <section class="experience-screen cake-room-screen" id="cake-room" aria-labelledby="cake-title" aria-hidden="true">
+      <span class="party-spark party-spark-one" aria-hidden="true">✦</span>
+      <span class="party-spark party-spark-two" aria-hidden="true">✧</span>
+      <span class="party-spark party-spark-three" aria-hidden="true">✿</span>
+      <span class="party-spark party-spark-four" aria-hidden="true">✦</span>
+      <div class="cake-content">
+        <p class="cake-eyebrow">The birthday room is glowing</p>
+        <h2 id="cake-title">Make the first cut</h2>
+        <p class="cake-subtitle">A little sweetness, saved just for your special day.</p>
+
+        <div class="cake-stage">
+          <div class="cake-art" id="birthday-cake" role="img" aria-label="A three-tier pink birthday cake with glowing candles">
+            <div class="cake-candles" aria-hidden="true">
+              <span class="cake-candle"><i></i></span>
+              <span class="cake-candle"><i></i></span>
+              <span class="cake-candle"><i></i></span>
+              <span class="cake-candle"><i></i></span>
+              <span class="cake-candle"><i></i></span>
+            </div>
+            <div class="cake-tier cake-tier-top">
+              <span class="icing-drip"></span>
+              <span class="cake-berry berry-one"></span>
+              <span class="cake-berry berry-two"></span>
+              <span class="cake-berry berry-three"></span>
+            </div>
+            <div class="cake-tier cake-tier-middle">
+              <span class="icing-drip"></span>
+              <span class="cake-flower flower-one">✿</span>
+              <span class="cake-flower flower-two">✿</span>
+            </div>
+            <div class="cake-tier cake-tier-bottom">
+              <span class="icing-drip"></span>
+              <span class="cake-pearl pearl-one"></span>
+              <span class="cake-pearl pearl-two"></span>
+              <span class="cake-pearl pearl-three"></span>
+              <span class="cake-pearl pearl-four"></span>
+              <span class="cake-pearl pearl-five"></span>
+            </div>
+            <div class="cake-plate"></div>
+            <span class="cake-cut-piece" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <p class="cake-message" id="cake-message" aria-live="polite">Close your eyes and make a little wish.</p>
+        <button class="cut-button" id="cut-cake" type="button">Make the first cut <span aria-hidden="true">♡</span></button>
+      </div>
+    </section>
+
+    <!-- Screen 4: a teddy bear carries Vaani's birthday wish. -->
+    <section class="experience-screen wish-screen" id="wish-screen" aria-labelledby="wish-title" aria-hidden="true">
+      <span class="wish-heart wish-heart-one" aria-hidden="true">♥</span>
+      <span class="wish-heart wish-heart-two" aria-hidden="true">♡</span>
+      <span class="wish-sparkle wish-sparkle-one" aria-hidden="true">✦</span>
+      <span class="wish-sparkle wish-sparkle-two" aria-hidden="true">✧</span>
+
+      <div class="wish-content">
+        <p class="wish-eyebrow">A wish, wrapped in love</p>
+        <svg class="wish-illustration" viewBox="0 0 300 290" role="img" aria-label="A teddy bear holding balloons beside a little birthday cake">
+          <g class="wish-balloons">
+            <path d="M75 91 C76 125 94 145 116 171" fill="none" stroke="#c49a9d" stroke-width="1.5"/>
+            <path d="M122 56 C119 105 121 131 128 164" fill="none" stroke="#c49a9d" stroke-width="1.5"/>
+            <path d="M171 78 C162 112 149 140 140 168" fill="none" stroke="#c49a9d" stroke-width="1.5"/>
+            <ellipse cx="70" cy="61" rx="24" ry="31" fill="#e991a8"/>
+            <path d="M70 91 l-5 8 10 0Z" fill="#d87993"/>
+            <ellipse cx="121" cy="38" rx="23" ry="30" fill="#f3cf75"/>
+            <path d="M121 68 l-5 8 10 0Z" fill="#d5aa52"/>
+            <ellipse cx="177" cy="53" rx="24" ry="31" fill="#c6b3e4"/>
+            <path d="M177 84 l-5 8 10 0Z" fill="#a28cc8"/>
+            <path d="M59 49 Q66 39 76 43" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+            <path d="M111 27 Q117 18 126 22" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+            <path d="M166 40 Q173 30 182 34" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+          </g>
+          <g class="wish-bear">
+            <ellipse cx="139" cy="259" rx="70" ry="10" fill="#8f6070" opacity=".12"/>
+            <ellipse cx="133" cy="194" rx="49" ry="56" fill="#bd835e"/>
+            <ellipse cx="133" cy="202" rx="27" ry="34" fill="#f0d7bc"/>
+            <ellipse cx="91" cy="218" rx="25" ry="16" fill="#b87955"/>
+            <ellipse cx="170" cy="214" rx="24" ry="16" fill="#b87955"/>
+            <circle cx="133" cy="125" r="52" fill="#c38a63"/>
+            <circle cx="96" cy="87" r="19" fill="#b57954"/>
+            <circle cx="170" cy="87" r="19" fill="#b57954"/>
+            <circle cx="96" cy="87" r="9" fill="#edc8aa"/>
+            <circle cx="170" cy="87" r="9" fill="#edc8aa"/>
+            <ellipse cx="133" cy="140" rx="23" ry="18" fill="#f3ddc5"/>
+            <ellipse cx="133" cy="132" rx="6.5" ry="5" fill="#50373a"/>
+            <circle cx="114" cy="119" r="3.5" fill="#39282b"/>
+            <circle cx="152" cy="119" r="3.5" fill="#39282b"/>
+            <circle cx="107" cy="134" r="5" fill="#dd9291" opacity=".7"/>
+            <circle cx="159" cy="134" r="5" fill="#dd9291" opacity=".7"/>
+            <path d="M127 144 Q133 150 139 144" fill="none" stroke="#81534c" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M113 97 Q133 81 153 97 L149 108 Q133 101 117 108Z" fill="#e78ba3"/>
+            <circle cx="133" cy="96" r="6" fill="#f3c66f"/>
+            <path d="M111 175 Q131 163 154 175" fill="none" stroke="#d99c78" stroke-width="4" stroke-linecap="round"/>
+            <path d="M103 182 Q133 193 161 181 L156 193 Q132 203 108 194Z" fill="#de7891"/>
+            <circle cx="133" cy="194" r="5" fill="#f2c0cb"/>
+          </g>
+          <g class="wish-cake">
+            <ellipse cx="230" cy="247" rx="43" ry="8" fill="#8f6070" opacity=".12"/>
+            <path d="M189 215 Q230 201 270 215 L266 245 Q230 257 193 245Z" fill="#e9a1b1"/>
+            <ellipse cx="230" cy="215" rx="41" ry="12" fill="#fff1e8"/>
+            <path d="M193 217 Q203 226 211 217 Q220 229 229 218 Q240 229 248 217 Q259 227 267 216" fill="none" stroke="#d98299" stroke-width="4"/>
+            <rect x="204" y="185" width="52" height="31" rx="7" fill="#f4c2ca"/>
+            <ellipse cx="230" cy="185" rx="26" ry="8" fill="#fff3e9"/>
+            <path d="M210 186 Q217 193 223 186 Q231 194 238 186 Q247 193 252 185" fill="none" stroke="#e9a1b1" stroke-width="3"/>
+            <rect x="217" y="163" width="5" height="18" rx="2" fill="#fff6e8"/>
+            <rect x="230" y="160" width="5" height="21" rx="2" fill="#fff6e8"/>
+            <rect x="243" y="163" width="5" height="18" rx="2" fill="#fff6e8"/>
+            <path d="M219.5 159 Q213 167 219.5 170 Q226 167 219.5 159Z" fill="#f6c95f"/>
+            <path d="M232.5 155 Q226 164 232.5 167 Q239 164 232.5 155Z" fill="#f6c95f"/>
+            <path d="M245.5 159 Q239 167 245.5 170 Q252 167 245.5 159Z" fill="#f6c95f"/>
+          </g>
+        </svg>
+
+        <h2 id="wish-title">Your wish is<br>on its way.</h2>
+        <p class="wish-subtitle">A little birthday magic is floating your way.</p>
+        <button class="wish-button" id="reveal-wish" type="button">Reveal my wish <span aria-hidden="true">♡</span></button>
+        <div class="wish-card" id="wish-card" hidden>
+          <span class="wish-card-sparkle" aria-hidden="true">✦</span>
+          <p>May your year be filled with laughter, lovely surprises, and all the happiness you deserve.</p>
+        </div>
+        <button class="continue-button" id="continue-to-birthday" type="button" hidden>Continue to your birthday <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- Screen 5: Vaani's final birthday greeting. -->
+    <section class="experience-screen final-screen" id="final-screen" aria-labelledby="final-title" aria-hidden="true">
+      <span class="final-decoration final-heart-one" aria-hidden="true">♥</span>
+      <span class="final-decoration final-heart-two" aria-hidden="true">♡</span>
+      <span class="final-decoration final-flower-one" aria-hidden="true">✿</span>
+      <span class="final-decoration final-flower-two" aria-hidden="true">✿</span>
+      <span class="final-decoration final-sparkle-one" aria-hidden="true">✦</span>
+      <span class="final-decoration final-sparkle-two" aria-hidden="true">✧</span>
+      <span class="final-decoration final-sparkle-three" aria-hidden="true">✦</span>
+
+      <div class="final-content">
+        <p class="final-eyebrow">November 10 <span aria-hidden="true">·</span> a day for celebrating you</p>
+        <div class="final-bouquet" aria-hidden="true">
+          <span>🌷</span><span>✿</span><span>🌸</span>
+        </div>
+        <h2 id="final-title">Happy Birthday,<br><em>Vaani!</em> <span class="final-heart" aria-label="love">♥</span></h2>
+        <p class="final-message">
+          May the year ahead bring you laughter that stays a little longer, small adventures worth remembering,
+          and all the happiness your generous heart gives to everyone around you.
+        </p>
+        <p class="final-message final-message-second">
+          I hope today reminds you just how special you are—and how much brighter the world feels with you in it.
+          You deserve to feel cherished, celebrated, and loved, today and always.
+        </p>
+        <article class="final-letter-card" aria-labelledby="final-letter-title">
+          <p class="final-letter-eyebrow">One more note, from my heart</p>
+          <h3 id="final-letter-title">Dear Vaani,</h3>
+          <div class="final-letter-copy">
+            <p>Happy Birthday! ❤️🎂</p>
+            <p>I hope you have a really beautiful day filled with happiness, laughter, and lots of smiles.</p>
+            <p>I honestly don't know how to write a perfect birthday message, but I wanted to make something special for you instead of just sending a normal birthday wish.</p>
+            <p>I just want to tell you something honestly. I like you more than you might realize, and you have become someone very special to me. Even small moments and simple conversations with you can make my day better.</p>
+            <p>A part of me is still waiting and hoping that someday you might come into my life. I don't know what the future holds, but my feelings are genuine. I'll always wish for your happiness, no matter what happens.</p>
+            <p>I hope this new year of your life brings you lots of happiness, success, good health, and everything you've been wishing for.</p>
+            <p>Never stop smiling, keep being yourself, and enjoy every little moment of life.</p>
+            <p>Take care of yourself and have the happiest birthday!</p>
+            <p>Once again, Happy Birthday, Vaani! ❤️</p>
+          </div>
+          <p class="final-letter-signoff">With lots of love and good wishes.</p>
+        </article>
+        <button class="final-button" id="celebrate-again" type="button">Send the birthday magic again <span aria-hidden="true">♡</span></button>
+        <p class="final-signoff">Made with love, just for you.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
